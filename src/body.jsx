@@ -1,15 +1,11 @@
+import React, { useState } from "react"
+import EditTodo from "./EditTodo";
 import "./index.css"
 
 
-function Body({ todo, setTodo, handleDelete}) {
-
-    // const handleDelete=(id)=>{
-    //     todo = todo.filter(item => item.id !== id)
-    //     console.log(todo)
-    //     setTodo(todo)
-    // }
-
-    // console.log(todo)
+function Body({ todo, edit, handleDelete}) {
+    
+    const [editTodo,setEditTodo] = useState(false);
 
     return todo.map((todo, index) => (
         <div className="parent">
@@ -18,9 +14,10 @@ function Body({ todo, setTodo, handleDelete}) {
                 <p className="output">{todo.title}</p>
                 <p className="output">{todo.select}</p>
               
-                <button>edit</button>
-                <button onClick={() => handleDelete(todo.id)}>delete</button>
+                <button onClick={()=> setEditTodo((prev)=>!prev)}>edit</button>
+                <button onClick={() => handleDelete(todo.id)}>delete</button>                                                                                                                                                                                                                                                       
             </div>
+            {editTodo && <EditTodo value={todo} index={index} edit={edit} setEditTodo={setEditTodo}/>}
         </div>
     ))
 }

@@ -30,16 +30,18 @@ padding-bottom: 32px;
   display: flex;
   justify-content: space-around;
   gap: 16px;
-  width: 50%;
+  width: 100%;
   height: auto;
   background-color: aquamarine;
   align-items: center;
 }
 .parent{
-  /* justify-content: space-around; */
   text-align: center;
-  margin-top: 48px;
-  margin-left: 470px;
+  margin: 48px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 
 }
 .check{
@@ -76,4 +78,7 @@ padding-bottom: 32px;
 .input3:hover{
   background-color: bisque;
   cursor: pointer;
+}
+.edit{
+  background-color: blue;
 }

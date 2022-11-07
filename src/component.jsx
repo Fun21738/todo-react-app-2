@@ -14,6 +14,12 @@ const Component = () => {
   }
 
 
+  const edit = (newData,index)=>{
+    const newTodos = [...todo];
+    newTodos[index] = newData;
+    setTodo(newTodos);
+  }
+
   const handleDelete=(id)=>{
    const todoN = todo.filter(item => item.id !== id)
     // console.log(todo)
@@ -58,7 +64,7 @@ const Component = () => {
    
   
 <div>
-<Body todo={todo} handleDelete={handleDelete}></Body>
+<Body todo={todo} edit={edit} handleDelete={handleDelete}></Body>
 </div>
 </>
   )
